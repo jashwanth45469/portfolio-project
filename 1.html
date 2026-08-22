@@ -206,6 +206,13 @@
         margin-top: 0;
       }
 
+      .project-meta {
+        margin-top: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
       .tag {
         display: inline-block;
         margin: 6px 8px 0 0;
@@ -215,6 +222,26 @@
         border: 1px solid rgba(56, 189, 248, 0.3);
         color: var(--primary);
         font-size: 0.85rem;
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .contact-item {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 14px 16px;
+        background: rgba(15, 23, 42, 0.5);
+      }
+
+      .contact-item span {
+        color: var(--muted);
       }
 
       footer {
@@ -322,14 +349,26 @@
             <div class="card">
               <h3>Portfolio Website</h3>
               <p>A personal portfolio page designed to showcase skills, projects, and career highlights in a modern layout.</p>
+              <div class="project-meta">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+              </div>
             </div>
             <div class="card">
               <h3>Business Landing Page</h3>
               <p>A marketing-focused landing page built to present products clearly with strong conversion-driven UI sections.</p>
+              <div class="project-meta">
+                <span class="tag">Responsive</span>
+                <span class="tag">UI</span>
+              </div>
             </div>
             <div class="card">
               <h3>Web App UI</h3>
               <p>An interactive dashboard and interface prototype focused on clean data presentation and accessibility.</p>
+              <div class="project-meta">
+                <span class="tag">JavaScript</span>
+                <span class="tag">UX</span>
+              </div>
             </div>
           </div>
         </div>
@@ -357,9 +396,20 @@
           <h2 class="section-title">Let’s Connect</h2>
           <p class="section-subtitle">I’m open to collaborations, freelance work, and new opportunities.</p>
           <div class="card">
-            <p>Email: jashwanthkumar@example.com</p>
-            <p>LinkedIn: linkedin.com/in/jashwanthkumar</p>
-            <p>GitHub: github.com/jashwanth45469</p>
+            <div class="contact-list">
+              <div class="contact-item">
+                <strong>Email</strong>
+                <span>jashwanthkumar@example.com</span>
+              </div>
+              <div class="contact-item">
+                <strong>LinkedIn</strong>
+                <span>linkedin.com/in/jashwanthkumar</span>
+              </div>
+              <div class="contact-item">
+                <strong>GitHub</strong>
+                <span>github.com/jashwanth45469</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
