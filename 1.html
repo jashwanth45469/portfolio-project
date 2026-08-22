@@ -1,7 +1,372 @@
-!
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jashwanth Kumar | Portfolio</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --bg-soft: #111827;
+        --panel: #1f2937;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+        --primary: #38bdf8;
+        --accent: #34d399;
+        --border: rgba(148, 163, 184, 0.2);
+      }
+
+      * { box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(180deg, var(--bg) 0%, #020817 100%);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1100px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+        z-index: 10;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 72px;
+      }
+
+      .brand {
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        color: var(--muted);
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .hero {
+        padding: 100px 0 60px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 36px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        color: var(--primary);
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      h1 {
+        margin: 0 0 18px;
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        line-height: 1.1;
+      }
+
+      .lead {
+        color: var(--muted);
+        max-width: 600px;
+        font-size: 1.1rem;
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 24px;
+        border-radius: 999px;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #062133;
+        box-shadow: 0 12px 25px rgba(56, 189, 248, 0.3);
+      }
+
+      .btn-secondary {
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+
+      .profile-card {
+        background: rgba(31, 41, 55, 0.8);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 24px;
+        box-shadow: 0 20px 40px rgba(2, 6, 23, 0.4);
+      }
+
+      .avatar {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 20px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        display: grid;
+        place-items: center;
+        font-size: 4rem;
+        font-weight: 700;
+        color: #03131d;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .stat {
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 12px;
+        text-align: center;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.3rem;
+        color: var(--primary);
+      }
+
+      section {
+        padding: 40px 0;
+      }
+
+      .section-title {
+        font-size: clamp(1.8rem, 3vw, 2.5rem);
+        margin-bottom: 10px;
+      }
+
+      .section-subtitle {
+        color: var(--muted);
+        margin-bottom: 28px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        background: rgba(17, 24, 39, 0.8);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 22px;
+      }
+
+      .card h3 {
+        margin-top: 0;
+      }
+
+      .tag {
+        display: inline-block;
+        margin: 6px 8px 0 0;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(56, 189, 248, 0.12);
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        color: var(--primary);
+        font-size: 0.85rem;
+      }
+
+      footer {
+        padding: 32px 0 60px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 760px) {
+        .hero-grid,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
   <body>
-    <h1>Hello</h1>
-    <p>This is my portfolio</p>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="brand">Jashwanth</div>
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">Frontend Developer</div>
+            <h1>Building digital experiences that feel simple and memorable.</h1>
+            <p class="lead">
+              I’m Jashwanth Kumar, a developer focused on crafting clean, user-friendly web experiences
+              with strong design and practical functionality.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#projects">View Projects</a>
+              <a class="btn btn-secondary" href="#contact">Contact Me</a>
+            </div>
+          </div>
+
+          <div class="profile-card">
+            <div class="avatar">JK</div>
+            <div class="stats">
+              <div class="stat">
+                <strong>2+</strong>
+                Years
+              </div>
+              <div class="stat">
+                <strong>15+</strong>
+                Projects
+              </div>
+              <div class="stat">
+                <strong>100%</strong>
+                Passion
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">
+            I enjoy turning ideas into polished, responsive interfaces that work beautifully on every screen.
+          </p>
+          <div class="grid">
+            <div class="card">
+              <h3>What I do</h3>
+              <p>I design and build responsive websites and interactive front-end experiences with a focus on usability and clarity.</p>
+            </div>
+            <div class="card">
+              <h3>My approach</h3>
+              <p>I combine clean code, strong visual structure, and thoughtful user flow to create products that feel intuitive.</p>
+            </div>
+            <div class="card">
+              <h3>My goal</h3>
+              <p>To keep learning, building useful tools, and contributing to projects that make a real impact.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="container">
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">Selected work that reflects my interest in design, product thinking, and development.</p>
+          <div class="grid">
+            <div class="card">
+              <h3>Portfolio Website</h3>
+              <p>A personal portfolio page designed to showcase skills, projects, and career highlights in a modern layout.</p>
+            </div>
+            <div class="card">
+              <h3>Business Landing Page</h3>
+              <p>A marketing-focused landing page built to present products clearly with strong conversion-driven UI sections.</p>
+            </div>
+            <div class="card">
+              <h3>Web App UI</h3>
+              <p>An interactive dashboard and interface prototype focused on clean data presentation and accessibility.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="container">
+          <h2 class="section-title">Skills</h2>
+          <p class="section-subtitle">Tools and technologies I work with regularly.</p>
+          <div class="card">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">React</span>
+            <span class="tag">Responsive Design</span>
+            <span class="tag">UI/UX</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Problem Solving</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <h2 class="section-title">Let’s Connect</h2>
+          <p class="section-subtitle">I’m open to collaborations, freelance work, and new opportunities.</p>
+          <div class="card">
+            <p>Email: jashwanthkumar@example.com</p>
+            <p>LinkedIn: linkedin.com/in/jashwanthkumar</p>
+            <p>GitHub: github.com/jashwanth45469</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">© 2026 Jashwanth Kumar. All rights reserved.</div>
+    </footer>
   </body>
 </html>
